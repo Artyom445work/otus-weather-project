@@ -132,7 +132,7 @@ router.addRoute({
         const coords = await getCityCoords(city, openweathermapApiKey)
         createMap(coords)
 
-        let citiesList = loadList()
+        const citiesList = loadList()
         if (!citiesList.includes(city)) {
             citiesList.push(city)
             if (citiesList.length > 10) citiesList.shift()

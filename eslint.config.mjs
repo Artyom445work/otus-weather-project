@@ -16,7 +16,8 @@ export default tseslint.config(
           "@typescript-eslint/no-unused-vars": "error",
           "@typescript-eslint/no-explicit-any": "off",
           "no-undef": "error",
-          "no-useless-escape": "off"
+          "no-useless-escape": "off",
+          "prefer-const": "off"
       },
         ignores: ['./webpack.config.js']
     },
