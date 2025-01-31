@@ -11,9 +11,11 @@ export class Router {
     private routes: RouteConfig[] = []
     private currentRoute: RouteConfig | null = null
     useHash: boolean
+    basename: string
 
-    constructor(useHash = false) {
+    constructor(useHash = false, basename) {
         this.useHash = useHash
+        this.basename = basename;
         if (this.useHash) {
             window.addEventListener("hashchange", () => this.resolveRoute())
         } else {
@@ -23,6 +25,10 @@ export class Router {
 
     addRoute(route: RouteConfig) {
         this.routes.push(route)
+    }
+
+    makeUrl(path: string) {
+        return `${this.basename}${path}`
     }
 
     async navigate(path: string) {

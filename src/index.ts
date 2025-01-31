@@ -39,7 +39,8 @@ const renderHistory = () => {
     }
 }
 
-const router = new Router(false)
+/* global BASENAME */
+const router = new Router(false, BASENAME)
 
 router.addRoute({
     path: "/",
@@ -154,12 +155,12 @@ router.addRoute({
 
 document.body.innerHTML = `
   <nav class="nav">
-    <a href="./" onclick="router.navigate('/'); return false;" class="nav__link" data-link>Главная</a>
-    <a href="./weather" onclick="router.navigate('/weather'); return false;" class="nav__link" data-link>О погоде</a>
-    <a href="./about" onclick="router.navigate('/about'); return false;" class="nav__link" data-link>О проекте</a>
+    <a href="${router.makeUrl('/')}" onclick="router.navigate('/'); return false;" class="nav__link" data-link>Главная</a>
+    <a href="${router.makeUrl('/weather')}" onclick="router.navigate('/weather'); return false;" class="nav__link" data-link>О погоде</a>
+    <a href="${router.makeUrl('/about')}" onclick="router.navigate('/about'); return false;" class="nav__link" data-link>О проекте</a>
   </nav>
   <main class="container"></main>
 `;
 
 (window as any).router = router
-router.navigate(router.useHash ? window.location.hash.slice(1) || "./" : window.location.pathname)
+router.navigate(router.useHash ? window.location.hash.slice(1) || "/" : window.location.pathname)
