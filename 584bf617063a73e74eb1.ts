@@ -145,9 +145,9 @@ router.addRoute({
 });
 document.body.innerHTML = `
   <nav class="nav">
-    <a href="./" onclick="router.navigate('/'); return false;" class="nav__link" data-link>Главная</a>
-    <a href="./weather" onclick="router.navigate('/weather'); return false;" class="nav__link" data-link>О погоде</a>
-    <a href="./about" onclick="router.navigate('/about'); return false;" class="nav__link" data-link>О проекте</a>
+    <a href="./" onclick="router.navigate('./'); return false;" class="nav__link" data-link>Главная</a>
+    <a href="./weather" onclick="router.navigate('./weather'); return false;" class="nav__link" data-link>О погоде</a>
+    <a href="./about" onclick="router.navigate('./about'); return false;" class="nav__link" data-link>О проекте</a>
   </nav>
   <main class="container"></main>
 `;
