@@ -32,7 +32,12 @@ export class Router {
     }
 
     async navigate(path: string) {
-        path = this.basename + path
+        console.log('this.basename === ', this.basename)
+        console.log('path === ', path)
+        if (!path.includes(this.basename)) {
+            path = this.basename + path
+        }
+        path = window.location.origin + path
         if (this.useHash) {
             window.location.hash = path
         } else {
@@ -42,6 +47,7 @@ export class Router {
     }
 
     async resolveRoute() {
+        console.log('this.basename === ', this.basename)
         const url = this.useHash ? window.location.hash.slice(1) : window.location.pathname
         const matchingRoute = this.routes.find(route =>
             typeof route.path === "string" ?
