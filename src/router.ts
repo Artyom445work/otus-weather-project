@@ -32,6 +32,7 @@ export class Router {
     }
 
     async navigate(path: string) {
+        path = this.basename + path
         if (this.useHash) {
             window.location.hash = path
         } else {
