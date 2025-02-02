@@ -48,7 +48,7 @@ export class Router {
 
     async resolveRoute() {
         console.log('this.basename === ', this.basename)
-        const url = this.useHash ? window.location.hash.slice(1) : window.location.pathname
+        const url = (this.useHash ? window.location.hash.slice(1) : window.location.pathname).replace(new RegExp(`${this.basename}`), '')
         const matchingRoute = this.routes.find(route =>
             typeof route.path === "string" ?
                 route.path === url
