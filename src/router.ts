@@ -59,6 +59,9 @@ export class Router {
                     route.path(url)
         )
 
+        console.log('url === ', url)
+        console.log('this.routes === ', this.routes)
+
         if (matchingRoute) {
             if (this.currentRoute?.onLeave) {
                 const leaveResult = await this.currentRoute.onLeave({})
